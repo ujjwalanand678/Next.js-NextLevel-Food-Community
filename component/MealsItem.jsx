@@ -28,7 +28,7 @@ export default function MealsItem({ title, slug, image, summary, creator }) {
       </div>
 
       {/* CONTENT */}
-      <div className="flex flex-col p-6 space-y-4 flex-grow">
+      <div className="flex flex-col p-6 space-y-4 grow">
         <div>
           <h2 className="text-2xl font-semibold text-white drop-shadow-md">
             {title}
