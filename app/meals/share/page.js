@@ -1,7 +1,7 @@
 import React from "react";
 
-const page = () => {
+const Share = () => {
   return <div>page</div>;
 };
 
-export default page;
+export default Share;

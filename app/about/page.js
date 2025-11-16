@@ -1,6 +1,6 @@
 import React from "react";
 
-const about = () => {
+const About = () => {
   return (
   <div className="min-h-screen bg-gradient-radial at-center from-purple-400 via-purple-600 to-purple-900">
   <h1>About us</h1>
@@ -9,4 +9,4 @@ const about = () => {
   </div>);
 };
 
-export default about;
+export default About;
