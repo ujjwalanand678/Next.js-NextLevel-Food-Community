@@ -1,5 +1,5 @@
-import MealsGrid from '@/component/MealsGrid';
-import { getMeals } from '@/library/meals';
+import MealsGrid from '@/component/MealsGrid.jsx';
+import { getMeals } from '@/library/meals.js';
 import Link from 'next/link';
 
 

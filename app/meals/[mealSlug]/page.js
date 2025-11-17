@@ -1,22 +1,24 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getMeals } from '@/library/meals';
+import { getMeal } from '@/library/meals';
 
-export default function MealDetailsPage({ params }) {
-  const meal = getMeals(params.mealSlug);
+export default async function MealDetailsPage({ params }) {
+  const { mealSlug } = await params;       
 
-  if (!meal) {
+  const meal = getMeal(mealSlug);           // fetch single meal
+
+  if (!meal || typeof meal.instructions !== "string") {
     notFound();
   }
 
-  meal.instructions = meal.instructions.replace(/\n/g, '<br />');
+  const instructions = meal.instructions.replace(/\n/g, "<br />");
 
   return (
     <>
       {/* HEADER */}
       <header
         className="
-          max-w-5xl mx-auto mt-20
+          max-w-5xl mx-auto mt-30
           flex flex-col lg:flex-row gap-10
           bg-[rgba(255,255,255,0.08)]
           border border-[rgba(255,255,255,0.15)]
@@ -27,7 +29,6 @@ export default function MealDetailsPage({ params }) {
           text-white
         "
       >
-        {/* IMAGE */}
         <div className="relative w-full lg:w-1/2 h-64 lg:h-96 rounded-xl overflow-hidden">
           <Image
             src={meal.image}
@@ -37,7 +38,6 @@ export default function MealDetailsPage({ params }) {
           />
         </div>
 
-        {/* TEXT CONTENT */}
         <div className="flex flex-col justify-center space-y-4 lg:w-1/2">
           <h1 className="text-4xl font-bold drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">
             {meal.title}
@@ -71,7 +71,7 @@ export default function MealDetailsPage({ params }) {
             rounded-2xl p-8
           "
           dangerouslySetInnerHTML={{
-            __html: meal.instructions,
+            __html: instructions,
           }}
         ></p>
       </main>
