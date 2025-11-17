@@ -1,6 +1,23 @@
-import ImagePicker from "@/component/ImagePicker";
-
+import ImagePicker from "@/component/ImagePicker.jsx";
+import {shareMeal} from "@/library/actions.js"
 export default function ShareMealPage() {
+  //we should not use  "use server" here because if previously , we had used th "use client" in this file
+  //we would get error . that we should nor use "use server" with "use client" .so we can create a file and import it
+  //here directly and we can use "use sever" in that file directly.
+  // async function shareMeal (formData){
+  //     "use server"
+  //     const meal = {
+  //     title: formData.get('title'),
+  //     summary: formData.get('summary'),
+  //     instructions: formData.get('instructions'),
+  //     image: formData.get('image'),
+  //     creator: formData.get('name'),
+  //     creator_email: formData.get('email')
+  //   }
+
+  //   console.log(meal);
+  // }
+  
   return (
     <>
       {/* HEADER */}
@@ -35,6 +52,7 @@ export default function ShareMealPage() {
             space-y-8
             text-white
           "
+          action={shareMeal}
         >
           {/* ROW: NAME + EMAIL */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
