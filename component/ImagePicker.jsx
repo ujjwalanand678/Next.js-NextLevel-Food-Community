@@ -72,7 +72,7 @@ export default function ImagePicker({ label, name }) {
           type="button"
           onClick={handlePickClick}
           className="
-            px-6 py-3 rounded-xl
+            px-6 py-3 rounded-xl md:ml-7
             bg-[rgba(139,92,246,0.25)]
             border border-[rgba(139,92,246,0.5)]
             backdrop-blur-md
