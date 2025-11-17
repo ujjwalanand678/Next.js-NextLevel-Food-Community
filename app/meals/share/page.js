@@ -1,3 +1,5 @@
+import ImagePicker from "@/component/ImagePicker";
+
 export default function ShareMealPage() {
   return (
     <>
@@ -75,7 +77,9 @@ export default function ShareMealPage() {
 
           {/* TITLE */}
           <p className="flex flex-col space-y-2">
-            <label htmlFor="title" className="font-medium">Title</label>
+            <label htmlFor="title" className="font-medium">
+              Title
+            </label>
             <input
               type="text"
               id="title"
@@ -92,7 +96,9 @@ export default function ShareMealPage() {
 
           {/* SUMMARY */}
           <p className="flex flex-col space-y-2">
-            <label htmlFor="summary" className="font-medium">Short Summary</label>
+            <label htmlFor="summary" className="font-medium">
+              Short Summary
+            </label>
             <input
               type="text"
               id="summary"
@@ -109,7 +115,9 @@ export default function ShareMealPage() {
 
           {/* INSTRUCTIONS */}
           <p className="flex flex-col space-y-2">
-            <label htmlFor="instructions" className="font-medium">Instructions</label>
+            <label htmlFor="instructions" className="font-medium">
+              Instructions
+            </label>
             <textarea
               id="instructions"
               name="instructions"
@@ -125,9 +133,9 @@ export default function ShareMealPage() {
           </p>
 
           {/* IMAGE PICKER PLACEHOLDER */}
-          <p className="text-white/70 italic">
-            IMAGE PICKER
-          </p>
+          <div className="text-white">
+            <ImagePicker label="Your image" name="image" />
+          </div>
 
           {/* BUTTON */}
           <p className="text-center">
