@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { getMeal } from '@/lib/meals';
+import { getMeals } from '@/library/meals';
 
 export default function MealDetailsPage({ params }) {
-  const meal = getMeal(params.mealSlug);
+  const meal = getMeals(params.mealSlug);
 
   if (!meal) {
     notFound();
