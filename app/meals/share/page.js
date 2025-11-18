@@ -1,6 +1,13 @@
+"use client";
+
+import { useFormState } from "react-dom";
 import ImagePicker from "@/component/ImagePicker.jsx";
-import {shareMeal} from "@/library/actions.js"
+
+import MealsFormSubmit from "@/component/MealFormSubmit";
+import { shareMeal } from "@/library/actions.js";
 export default function ShareMealPage() {
+  const [state, formAction] = useFormState(shareMeal, { message: null });
+
   //we should not use  "use server" here because if previously , we had used th "use client" in this file
   //we would get error . that we should nor use "use server" with "use client" .so we can create a file and import it
   //here directly and we can use "use sever" in that file directly.
@@ -17,7 +24,7 @@ export default function ShareMealPage() {
 
   //   console.log(meal);
   // }
-  
+
   return (
     <>
       {/* HEADER */}
@@ -154,25 +161,10 @@ export default function ShareMealPage() {
           <div className="text-white">
             <ImagePicker label="Your image" name="image" />
           </div>
-
+          {state.message && <p>{state.message}</p>}
           {/* BUTTON */}
           <p className="text-center">
-            <button
-              type="submit"
-              className="
-                px-8 py-3 rounded-xl
-                bg-[rgba(139,92,246,0.3)]
-                border border-[rgba(139,92,246,0.5)]
-                backdrop-blur-md
-                text-white font-medium
-                shadow-[0_0_20px_rgba(139,92,246,0.4)]
-                hover:bg-[rgba(139,92,246,0.4)]
-                hover:shadow-[0_0_30px_rgba(139,92,246,0.6)]
-                transition-all duration-300
-              "
-            >
-              Share Meal
-            </button>
+            <MealsFormSubmit />
           </p>
         </form>
       </main>
